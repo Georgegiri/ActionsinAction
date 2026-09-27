@@ -1,0 +1,39 @@
+
+# CP5401 Practical 03 - Learning YAML Syntax
+
+# 1. Scalar data types
+project: CampusConnect
+week: 3
+version: 1.0
+active: true
+optional_value: null
+created_at: 2026-09-27T09:00:00Z
+
+# 2. Quoted strings
+message: "A student cannot book overlapping appointments"
+student_note: 'The student''s booking is confirmed'
+
+# 3. Mapping (nested key-value pairs)
+project_details:
+  system: CampusConnect
+  purpose: University consultation booking
+  quality_goal: Prevent overlapping bookings
+
+# 4. Sequence (list)
+quality_checks:
+  - Check booking overlaps
+  - Check session capacity
+  - Check cancellation rules
+
+# 5. Multiline text using the pipe operator
+description: |
+  CampusConnect allows students to book consultations.
+  Lecturers can create sessions and set capacity.
+  Quality checks help prevent booking errors.
+
+# 6. Multiline script
+script: |
+  echo "Welcome to CampusConnect"
+  echo "Checking repository files"
+  tree
+
