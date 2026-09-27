@@ -1,5 +1,8 @@
+
 name: My First Workflow
 
+# Run automatically when changes are pushed to main,
+# or manually from the Actions tab.
 on:
   push:
     branches:
@@ -11,12 +14,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: echo "Hello World!"
+      # Step 1: Download the repository onto the runner
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Checkout
-        uses: actions/checkout@v5
+      # Step 2: Display a simple message
+      - name: Hello World
+        run: echo "Hello World!"
 
-      - name: List files in repository
+      # Step 3: Show the repository files
+      - name: List repository files
         run: |
-          echo "The repository ${{ github.repository }} contains the following files:"
-          tree
+          echo "Repository: ${{ github.repository }}"
+          echo "Files available on the Ubuntu runner:"
+          find . -maxdepth 3 -type f | sort
+
+      # Step 4: Read the YAML file created in Practical 03
+      - name: Show YAML practice file
+        run: |
+          echo "=== Contents of yaml-practice.yml ==="
+          cat yaml-practice.yml
+
+      # Step 5: Confirm that the demonstration has finished
+      - name: Finish demonstration
+        run: echo "Practical 03 demonstration completed successfully!"
